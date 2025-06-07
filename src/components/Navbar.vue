@@ -14,7 +14,7 @@
 import NavButtonScroll from "@/components/NavButtonScroll.vue";
 
 const menus = [
-  { id: 1, nome: "Home", path: "id1"},
+  { id: 1, nome: "Home", path: "section1"},
   { id: 2, nome: "About", path: "id2"},
   { id: 2, nome: "Login", path: "id3"}
 ]

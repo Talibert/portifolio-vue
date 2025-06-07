@@ -13,6 +13,10 @@ defineProps<{
     path: string }
 }>()
 
+/**
+ * Vai receber o id do elemento, recuperar e fazer o scroll até ele
+ * @param id
+ */
 function scrollTo(id: string) {
   const el = document.getElementById(id);
   if (el) {

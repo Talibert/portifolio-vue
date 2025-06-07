@@ -3,6 +3,9 @@
     <AdviceComponent/>
     <CarrouselHome/>
   </div>
+  <section id="section1">
+    <AdviceComponent/>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -17,7 +20,7 @@ import AdviceComponent from '@/components/AdviceComponent.vue'
   justify-content: center;
   flex-direction: row;
   align-items: center;
-  height: 800px;
+  height: 2000px;
 
   background-image: url('@/assets/images/hero.png'); /* ou caminho relativo se estiver na mesma pasta */
   background-size: cover;       /* Para cobrir toda a área */
