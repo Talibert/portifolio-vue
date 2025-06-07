@@ -4,17 +4,19 @@
       <HeaderWelcome/>
     </div>
     <div class="header-buttons">
-      <NavButton v-for="item in menus" :key="item.id" :item="item"/>
+      <NavButtonScroll v-for="item in menus" :key="item.id" :item="item"/>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
 
+import NavButtonScroll from "@/components/NavButtonScroll.vue";
+
 const menus = [
-  { id: 1, nome: "Home", path: "/"},
-  { id: 2, nome: "About", path: "/about"},
-  { id: 2, nome: "Login", path: "/login"}
+  { id: 1, nome: "Home", path: "id1"},
+  { id: 2, nome: "About", path: "id2"},
+  { id: 2, nome: "Login", path: "id3"}
 ]
 
 // Importação dos componentes filhos
