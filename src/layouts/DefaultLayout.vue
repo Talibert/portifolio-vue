@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <HeaderComponent />
+    <Navbar />
     <main class="main">
       <router-view />
     </main>
@@ -18,7 +18,7 @@
  * - Rodapé
  */
 
-import HeaderComponent from '@/components/HeaderComponent.vue'
+import Navbar from '@/components/Navbar.vue'
 import FooterComponent from '@/components/FooterComponent.vue'
 
 </script>
@@ -33,7 +33,6 @@ import FooterComponent from '@/components/FooterComponent.vue'
 
 .main {
   flex: 1;
-  padding: 20px;
   background-color: #f5f5f5;
 }
 

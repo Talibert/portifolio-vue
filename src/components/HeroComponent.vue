@@ -18,6 +18,11 @@ import AdviceComponent from '@/components/AdviceComponent.vue'
   flex-direction: row;
   align-items: center;
   height: 800px;
+
+  background-image: url('@/assets/images/hero.png'); /* ou caminho relativo se estiver na mesma pasta */
+  background-size: cover;       /* Para cobrir toda a área */
+  background-position: center;  /* Centraliza a imagem */
+  background-repeat: no-repeat;
 }
 
 /* Os filhos do .hero ocuparão 50% cada */

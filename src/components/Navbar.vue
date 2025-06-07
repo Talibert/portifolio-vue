@@ -4,9 +4,8 @@
       <HeaderWelcome/>
     </div>
     <div class="header-buttons">
-      <HeaderButton v-for="item in menus" :key="item.id" :item="item"/>
+      <NavButton v-for="item in menus" :key="item.id" :item="item"/>
     </div>
-
   </header>
 </template>
 
@@ -19,7 +18,7 @@ const menus = [
 ]
 
 // Importação dos componentes filhos
-import HeaderButton from "./HeaderButton.vue";
+import NavButton from "./NavButton.vue";
 import HeaderWelcome from "./HeaderWelcome.vue";
 
 </script>
@@ -29,9 +28,9 @@ import HeaderWelcome from "./HeaderWelcome.vue";
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, #2b6b56, #ffffff);
+  background: #fbb8a6;
   padding: 0 20px;
-  height: 100px;
+  height: 80px;
 }
 
 .header-title{
