@@ -14,7 +14,11 @@
 import { useTypingEffect } from '@/composables/useTypingEffect'
 
 const { displayedText } = useTypingEffect(
-    "Programador Java que curte escrever código limpo, resolver problemas e aprender algo novo todo dia."
+    "Programador Java que curte escrever código limpo, resolver problemas e aprender algo novo todo dia.",
+    1500,
+    50,
+    30,
+    true
 )
 </script>
 
