@@ -17,13 +17,13 @@ import ProfilePhoto from "@/components/ProfilePhoto.vue";
 </script>
 
 <style scoped>
-.hero{
+.hero {
   display: flex;
   justify-content: center;
   flex-direction: row;
   align-items: center;
   height: 100vh;
-  background-color: #333333;
+  background-color: #1a1a1a; /* Mais escuro que a navbar */
 }
 
 /* Os filhos do .hero ocuparão 50% cada */
