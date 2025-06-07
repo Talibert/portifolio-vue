@@ -56,7 +56,6 @@ watch(
 
 .advice p {
   font-size: 36px;
-  font-weight: bold;
   color: #333;
 }
 

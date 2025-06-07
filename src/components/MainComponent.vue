@@ -1,7 +1,7 @@
 <template>
   <section id="section1" class="hero">
-    <AdviceComponent/>
-    <CarrouselHome/>
+    <ProfileIntro/>
+    <ProfilePhoto/>
   </section>
   <section id="section2">
     <AdviceComponent/>
@@ -11,6 +11,8 @@
 <script setup lang="ts">
 import CarrouselHome from './CarrouselHome.vue';
 import AdviceComponent from '@/components/AdviceComponent.vue'
+import ProfileIntro from "@/components/ProfileIntro.vue";
+import ProfilePhoto from "@/components/ProfilePhoto.vue";
 
 </script>
 

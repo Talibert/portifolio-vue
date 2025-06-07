@@ -1,10 +1,10 @@
 <template>
-  <HeroComponent/>
+  <MainComponent/>
 </template>
 
 <script setup lang="ts">
 
-import HeroComponent from '@/components/HeroComponent.vue'
+import MainComponent from "@/components/MainComponent.vue";
 </script>
 
 <style scoped>

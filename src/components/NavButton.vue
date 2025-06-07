@@ -1,9 +1,7 @@
 <template>
-  <RouterLink :to="item.path">
-    <button class="header-button">
-      {{ item.nome }}
-    </button>
-  </RouterLink>
+  <button class="header-button" @click="scrollTo(item.path)">
+    {{ item.nome }}
+  </button>
 </template>
 
 <script setup lang="ts">
@@ -15,19 +13,30 @@ defineProps<{
     path: string }
 }>()
 
+/**
+ * Vai receber o id do elemento, recuperar e fazer o scroll até ele
+ * @param id
+ */
+function scrollTo(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 </script>
 
 <style scoped>
 .header-button {
-  background-color: #973526;
-  color: #ffffff;
+  background-color: #121212;
+  color: #AAA;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
 }
 .header-button:hover {
-  background-color: #458ea0;
+  background-color: #111111;
 }
 </style>

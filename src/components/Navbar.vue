@@ -4,7 +4,7 @@
       <HeaderWelcome/>
     </div>
     <div class="header-buttons">
-      <NavButtonScroll v-for="item in menus" :key="item.id" :item="item"/>
+      <NavButton v-for="item in menus" :key="item.id" :item="item"/>
     </div>
   </header>
 </template>
@@ -13,7 +13,7 @@
 
 import { ref, onMounted, onUnmounted } from 'vue'
 import HeaderWelcome from "./HeaderWelcome.vue";
-import NavButtonScroll from "@/components/NavButtonScroll.vue";
+import NavButton from "@/components/NavButton.vue";
 
 /**
  * itens do menu
@@ -60,7 +60,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #fbb8a6;
+  background: #121212;
   padding: 0 20px;
   transition: transform 0.3s ease-in-out;
   z-index: 1000;
