@@ -1,42 +1,57 @@
 <template>
   <button class="header-button" @click="scrollTo(item.path)">
     {{ item.nome }}
+    <span class="underline"></span>
   </button>
 </template>
 
 <script setup lang="ts">
-
 defineProps<{
   item: {
     id: number,
     nome: string,
-    path: string }
+    path: string
+  }
 }>()
 
-/**
- * Vai receber o id do elemento, recuperar e fazer o scroll até ele
- * @param id
- */
 function scrollTo(id: string) {
   const el = document.getElementById(id);
   if (el) {
     el.scrollIntoView({ behavior: 'smooth' });
   }
 }
-
 </script>
 
 <style scoped>
 .header-button {
-  background-color: #121212;
-  color: #AAA;
+  position: relative;
+  background: transparent;
+  color: #ccc;
   border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px 0;
   cursor: pointer;
-  font-size: 25px;
+  user-select: none;
+  transition: color 0.3s ease;
 }
+
 .header-button:hover {
-  background-color: #111111;
+  color: #1e90ff; /* azul vibrante */
+}
+
+.header-button .underline {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: #1e90ff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+
+.header-button:hover .underline {
+  transform: scaleX(1);
 }
 </style>

@@ -1,39 +1,27 @@
 <template>
   <header class="header" :class="{ hidden: isHidden }">
-    <div class="header-title">
-      <HeaderWelcome/>
-    </div>
-    <div class="header-buttons">
-      <NavButton v-for="item in menus" :key="item.id" :item="item"/>
-    </div>
+    <nav class="header-buttons">
+      <NavButton v-for="item in menus" :key="item.id" :item="item" />
+    </nav>
   </header>
 </template>
 
 <script setup lang="ts">
-
 import { ref, onMounted, onUnmounted } from 'vue'
-import HeaderWelcome from "./HeaderWelcome.vue";
 import NavButton from "@/components/NavButton.vue";
 
-/**
- * itens do menu
- */
 const menus = [
-  { id: 1, nome: "Home", path: "section1"},
-  { id: 2, nome: "About", path: "section2"},
-  { id: 2, nome: "Login", path: "id3"}
+  { id: 1, nome: "Início", path: "section1"},
+  { id: 2, nome: "Sobre mim", path: "section2"},
+  { id: 3, nome: "Carreira", path: "section3"},
+  { id: 3, nome: "Estudos", path: "section3"},
+  { id: 3, nome: "Projetos", path: "section3"},
+  { id: 3, nome: "Contato", path: "section3"},
 ]
 
-/**
- * Comportamento da navbar quando o usuário faz o scroll
- */
 const isHidden = ref(false)
 let lastScroll = window.scrollY
 
-/**
- * Sempre que o scroll ocorre, a função compara a posição atual com a ultima
- * Assim ela sabe dizer se o usuário foi para cima ou para baixo
- */
 const handleScroll = () => {
   const currentScroll = window.scrollY
   isHidden.value = currentScroll > lastScroll && currentScroll > 100
@@ -47,7 +35,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
-
 </script>
 
 <style scoped>
@@ -56,27 +43,42 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: #121212;
-  padding: 0 20px;
-  transition: transform 0.3s ease-in-out;
+  justify-content: center; /* centraliza tudo */
+  padding: 0 30px;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: saturate(180%) blur(12px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
   z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.header-title{
-  margin-right: auto;
+.header-logo img {
+  height: 50px;
+  user-select: none;
 }
 
 .header-buttons {
-  display: flex;;
-  padding: 15px;
-  gap: 20px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 
 .hidden {
-  transform: translateY(-100%);
+  transform: translateY(-110%);
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 0 15px;
+  }
+  .header-buttons {
+    gap: 15px;
+  }
 }
 </style>
