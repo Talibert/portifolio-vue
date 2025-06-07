@@ -1,9 +1,9 @@
 <template>
-  <div class="hero">
+  <section id="section1" class="hero">
     <AdviceComponent/>
     <CarrouselHome/>
-  </div>
-  <section id="section1">
+  </section>
+  <section id="section2">
     <AdviceComponent/>
   </section>
 </template>

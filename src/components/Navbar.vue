@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ hidden: isHidden }">
     <div class="header-title">
       <HeaderWelcome/>
     </div>
@@ -11,28 +11,59 @@
 
 <script setup lang="ts">
 
+import { ref, onMounted, onUnmounted } from 'vue'
+import HeaderWelcome from "./HeaderWelcome.vue";
 import NavButtonScroll from "@/components/NavButtonScroll.vue";
 
+/**
+ * itens do menu
+ */
 const menus = [
   { id: 1, nome: "Home", path: "section1"},
-  { id: 2, nome: "About", path: "id2"},
+  { id: 2, nome: "About", path: "section2"},
   { id: 2, nome: "Login", path: "id3"}
 ]
 
-// Importação dos componentes filhos
-import NavButton from "./NavButton.vue";
-import HeaderWelcome from "./HeaderWelcome.vue";
+/**
+ * Comportamento da navbar quando o usuário faz o scroll
+ */
+const isHidden = ref(false)
+let lastScroll = window.scrollY
+
+/**
+ * Sempre que o scroll ocorre, a função compara a posição atual com a ultima
+ * Assim ela sabe dizer se o usuário foi para cima ou para baixo
+ */
+const handleScroll = () => {
+  const currentScroll = window.scrollY
+  isHidden.value = currentScroll > lastScroll && currentScroll > 100
+  lastScroll = currentScroll
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 </script>
 
 <style scoped>
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #fbb8a6;
   padding: 0 20px;
-  height: 80px;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .header-title{
@@ -43,5 +74,9 @@ import HeaderWelcome from "./HeaderWelcome.vue";
   display: flex;;
   padding: 15px;
   gap: 20px;
+}
+
+.hidden {
+  transform: translateY(-100%);
 }
 </style>

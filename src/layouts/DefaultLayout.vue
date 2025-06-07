@@ -34,6 +34,7 @@ import FooterComponent from '@/components/FooterComponent.vue'
 .main {
   flex: 1;
   background-color: #f5f5f5;
+  padding-top: 80px;
 }
 
 footer {
