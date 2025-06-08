@@ -11,7 +11,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import NavButton from "@/components/NavButton.vue";
 
 const menus = [
-  { id: 1, nome: "Início", path: "section1"},
+  { id: 1, nome: "Início", path: "beginning"},
   { id: 2, nome: "Sobre mim", path: "section2"},
   { id: 3, nome: "Carreira", path: "section3"},
   { id: 3, nome: "Estudos", path: "section3"},

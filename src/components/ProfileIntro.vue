@@ -4,7 +4,9 @@
       <h1 class="name">Guilherme Taliberti</h1>
       <h2 class="work">Desenvolvedor Fullstack</h2>
       <p class="about-me">
-        <span class="typing">{{ displayedText }}</span><span class="cursor" />
+        <span class="invisible-placeholder">{{aboutMeText}}</span>
+        <span>{{ displayedText }}</span>
+        <span class="cursor" />
       </p>
     </div>
   </div>
@@ -13,13 +15,16 @@
 <script setup lang="ts">
 import { useTypingEffect } from '@/composables/useTypingEffect'
 
+const aboutMeText = "Programador Java que curte escrever código limpo, resolver problemas e aprender algo novo todo dia.";
+
 const { displayedText } = useTypingEffect(
-    "Programador Java que curte escrever código limpo, resolver problemas e aprender algo novo todo dia.",
+    aboutMeText,
     1500,
     50,
     30,
     true
 )
+
 </script>
 
 <style scoped>
@@ -35,7 +40,7 @@ const { displayedText } = useTypingEffect(
 }
 
 .intro:hover {
-  transform: translateY(-4px);
+  transform: scale(1.05);
 }
 
 .intro-content {
@@ -47,6 +52,7 @@ const { displayedText } = useTypingEffect(
   margin-bottom: 10px;
   font-weight: bold;
   color: #f1f1f1;
+  text-align: right;
 }
 
 .work {
@@ -54,6 +60,7 @@ const { displayedText } = useTypingEffect(
   margin-bottom: 20px;
   color: #1e90ff;
   font-style: italic;
+  text-align: right;
 }
 
 .about-me {
@@ -66,6 +73,7 @@ const { displayedText } = useTypingEffect(
   white-space: normal; /* ✅ PERMITE QUEBRAS DE LINHA */
   overflow: hidden;
   position: relative;
+  text-align: right;
 }
 
 .cursor {
