@@ -1,12 +1,12 @@
 import './assets/styles/reset.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { MotionPlugin } from '@vueuse/motion'
+import { motion } from 'motion-v';
 import App from './App.vue'
 
 const pinia = createPinia();
 const app = createApp(App)
 
+app.component('motion-div', motion.div);
 app.use(pinia)
-app.use(MotionPlugin)
 app.mount('#app')

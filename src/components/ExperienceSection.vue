@@ -1,21 +1,19 @@
 <template>
-  <v-motion
-      ref="target"
-      :variants="variants"
-      :visible="isVisible"
-      class="block"
-      :class="[align, { current }]"
+  <MotionDiv
+    :whileHover="{ scale: 1.15}"
+    :whilePress="{ scale: 0.95}"
   >
     <div class="content">
       <h3 class="title">{{ title }}</h3>
       <p class="description">{{ description }}</p>
     </div>
-  </v-motion>
+  </MotionDiv>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { useIntersectionObserver } from '@vueuse/core'
+import {motion} from "motion-v";
+
+const MotionDiv = motion.div;
 
 const props = defineProps<{
   title: string
@@ -24,27 +22,7 @@ const props = defineProps<{
   current?: boolean
 }>()
 
-const target = ref(null)
-const isVisible = ref(false)
 
-const variants = {
-  initial: { opacity: 0, y: 60 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'ease-out' }
-  }
-}
-
-useIntersectionObserver(
-    target,
-    ([{ isIntersecting }]) => {
-      if (isIntersecting) isVisible.value = true
-    },
-    {
-      threshold: 0.2
-    }
-)
 </script>
 
 
