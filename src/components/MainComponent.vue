@@ -27,6 +27,8 @@ import Academic from "@/components/Academic.vue";
 .gradient-1-2, .gradient-2-3 {
   height: 60px;
   width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Gradiente de #333 para #222 */

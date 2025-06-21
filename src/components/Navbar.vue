@@ -72,12 +72,9 @@ onUnmounted(() => {
   transform: translateY(-110%);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .header {
-    padding: 0 15px;
-  }
-  .header-buttons {
-    gap: 15px;
+    display: none;
   }
 }
 </style>

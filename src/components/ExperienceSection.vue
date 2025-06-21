@@ -134,4 +134,18 @@ useIntersectionObserver(
 .experience-section.current .content p {
   color: #111;
 }
+
+@media (max-width: 600px) {
+  .content h3 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .experience-section {
+    width: 90%;
+  }
+}
 </style>
