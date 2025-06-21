@@ -13,7 +13,7 @@ import NavButton from "@/components/NavButton.vue";
 const menus = [
   { id: 1, nome: "Início", path: "beginning"},
   { id: 3, nome: "Carreira", path: "career"},
-  { id: 3, nome: "Estudos", path: "section3"},
+  { id: 3, nome: "Estudos", path: "academic"},
   { id: 3, nome: "Projetos", path: "section3"},
   { id: 3, nome: "Contato", path: "section3"},
 ]

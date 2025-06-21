@@ -1,6 +1,6 @@
 <template>
-  <section class="career-section">
-    <div class="career-title">
+  <section class="academic-section">
+    <div class="academic-title">
       <span class="invisible-placeholder">{{ title }}</span>
       <span class="typing">{{ displayedTitle }}</span><span class="cursor" />
     </div>
@@ -43,17 +43,17 @@ const { displayedText: displayedTitle } = useTypingEffect(title, 1000, 90, 30, f
 </script>
 
 <style scoped>
-.career-section {
-  position: relative;              /* ✅ Necessário pra posicionar a linha central */
+.academic-section {
+  position: relative;
   min-height: 100vh;
-  padding: 80px 20px;
+  padding: 80px 50px;
   background-color: #222222;
   color: #fff;
   display: flex;
   flex-direction: column;
 }
 
-.career-title {
+.academic-title {
   font-size: 2.2rem;
   font-weight: bold;
   margin-bottom: 60px;
@@ -82,10 +82,10 @@ const { displayedText: displayedTitle } = useTypingEffect(title, 1000, 90, 30, f
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;                         /* ✅ Exatamente no centro */
+  left: 50%;
   transform: translateX(-50%);
   width: 4px;
-  background-color: #444;             /* ✅ Cor da linha da timeline */
+  background-color: #444;
   z-index: 0;
 }
 

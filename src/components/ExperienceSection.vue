@@ -62,12 +62,6 @@ useIntersectionObserver(
   }
 }
 
-.experience-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
 .experience-section.visible.left {
   animation: fadeInLeft 0.8s ease forwards;
   opacity: 1;
@@ -86,12 +80,14 @@ useIntersectionObserver(
 }
 
 .experience-section.current.right {
-  background-color: #1a1a1a;
-  border-left-color: #ff4d4f;
+  background-color: #aaaaaa;
+  border-left-color: #8a2a2b;
 }
 
-/* Seu estilo base do card, alinhamento, sombras, etc, continua igual */
 .experience-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   width: 45%;
   padding: 20px;
   border-radius: 12px;
@@ -105,37 +101,37 @@ useIntersectionObserver(
   margin-right: auto;
   text-align: right;
   border-right: 6px solid #1e90ff;
-  background-color: #1a1a1a;
+  background-color: #aaaaaa;
 }
 
 .experience-section.right {
   margin-left: auto;
-  border-left: 6px solid #1e90ff;
-  background-color: #1a1a1a;
+  border-left: 6px solid #0b2d53;
+  background-color: #aaaaaa;
 }
 
 .content h3 {
   font-family: 'Inter', sans-serif;
   margin: 0 0 60px 0;
   font-size: 3rem;
-  color: #1e90ff;
+  color: #0b2d53;
 }
 
 .content p {
   font-family: 'Lato', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   margin: 0;
-  color: #ddd;
+  color: #111;
   font-size: 1.5rem;
   line-height: 1.5;
   text-align: justify;
 }
 
 .experience-section.current .content h3 {
-  color: #ff4d4f;
+  color: #8a2a2b;
 }
 
 .experience-section.current .content p {
-  color: #ddd;
+  color: #111;
 }
 </style>
