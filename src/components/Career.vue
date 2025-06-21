@@ -44,13 +44,13 @@ const { displayedText: displayedTitle } = useTypingEffect(title, 1000, 90, 30, f
 
 <style scoped>
 .career-section {
+  position: relative;              /* ✅ Necessário pra posicionar a linha central */
   min-height: 100vh;
   padding: 80px 20px;
   background-color: #141414;
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .career-title {
@@ -73,6 +73,20 @@ const { displayedText: displayedTitle } = useTypingEffect(title, 1000, 90, 30, f
   justify-content: space-between;
   flex-grow: 1;
   gap: 40px;
+  width: 100%;
+  position: relative;
+}
+
+.experiences::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;                         /* ✅ Exatamente no centro */
+  transform: translateX(-50%);
+  width: 4px;
+  background-color: #444;             /* ✅ Cor da linha da timeline */
+  z-index: 0;
 }
 
 .cursor {

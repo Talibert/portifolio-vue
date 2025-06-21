@@ -24,28 +24,33 @@ const alignClass = computed(() => props.align === 'left' ? 'left' : 'right')
 
 <style scoped>
 .experience-section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  max-width: 800px;
+  width: 45%;                         /* ✅ Ocupa 45% da largura da section */
+  max-width: none;                    /* ✅ Remove o limite anterior de 800px */
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
   box-sizing: border-box;
+  z-index: 1;                          /* ✅ Ficar acima da linha */
 }
 
 .experience-section.right {
   margin-left: auto;
   background-color: #1a1a1a;
   border-left: 6px solid #1e90ff;
+  animation: fadeInRight 0.8s ease forwards;
 }
 
 .experience-section.left {
   margin-right: auto;
+  text-align: right;
   background-color: #1a1a1a;
   border-right: 6px solid #1e90ff;
+  animation: fadeInLeft 0.8s ease forwards;
 }
 
 .experience-section.current.right {
@@ -85,5 +90,27 @@ const alignClass = computed(() => props.align === 'left' ? 'left' : 'right')
 
 .experience-section.current .content p {
   color: #ddd;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 </style>
