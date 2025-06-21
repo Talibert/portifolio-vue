@@ -50,7 +50,7 @@ const { displayedText: displayedTitle } = useTypingEffect(title, 1000, 90, 30, f
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* ✅ Centraliza verticalmente se o conteúdo permitir */
+  justify-content: center;
 }
 
 .career-title {
@@ -70,7 +70,7 @@ const { displayedText: displayedTitle } = useTypingEffect(title, 1000, 90, 30, f
 .experiences {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   flex-grow: 1;
   gap: 40px;
 }

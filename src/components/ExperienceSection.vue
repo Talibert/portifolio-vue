@@ -1,80 +1,87 @@
 <template>
-  <MotionDiv
-    :whileHover="{ scale: 1.15}"
-    :whilePress="{ scale: 0.95}"
-  >
+  <div :class="['experience-section', alignClass, { current }]">
     <div class="content">
-      <h3 class="title">{{ title }}</h3>
-      <p class="description">{{ description }}</p>
+      <h3>{{ title }}</h3>
+      <p>{{ description }}</p>
     </div>
-  </MotionDiv>
+  </div>
 </template>
 
 <script setup lang="ts">
-import {motion} from "motion-v";
+import { computed } from 'vue'
 
-const MotionDiv = motion.div;
-
-const props = defineProps<{
+interface Props {
   title: string
   description: string
   align: 'left' | 'right'
-  current?: boolean
-}>()
+  current: boolean
+}
 
+const props = defineProps<Props>()
 
+const alignClass = computed(() => props.align === 'left' ? 'left' : 'right')
 </script>
 
-
-
 <style scoped>
-.observer-wrapper {
-  min-height: 100px;
-}
-
-.block {
+.experience-section {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  justify-content: flex-start;
-  margin-bottom: 40px;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
-.block.right {
-  justify-content: flex-end;
+.experience-section.right {
+  margin-left: auto;
+  background-color: #0a1f40;
+  border-left: 6px solid #1e90ff;
+}
+
+.experience-section.left {
+  margin-right: auto;
+  background-color: #0a1f40;
+  border-right: 6px solid #1e90ff;
+}
+
+.experience-section.current.right {
+  background-color: #400000;
+  border-left-color: #ff4d4f;
+}
+
+.experience-section.current.left {
+  background-color: #400000;
+  border-right-color: #ff4d4f;
 }
 
 .content {
-  max-width: 500px;
-  padding: 20px;
-  background-color: #1e1e1e;
-  border-left: 5px solid #1e90ff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.block.left .content {
-  border-left: none;
-  border-right: 5px solid #1e90ff;
+.content h3 {
+  margin: 0 0 30px 0;
+  font-size: 3.5rem;
+  color: #fff;
 }
 
-.block.current .content {
-  border-color: #ff4c4c;
-  transform: scale(1.05);
-}
-
-.block.current .title {
-  color: #ff4c4c;
-}
-
-.title {
+.content p {
+  margin: 0;
+  color: #ddd;
   font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #1e90ff;
 }
 
-.description {
-  font-size: 1rem;
-  color: #cccccc;
-  line-height: 1.6;
+.experience-section.current .content h3 {
+  color: #ff4d4f;
+}
+
+.experience-section.current .content p {
+  color: #ffc1c1;
 }
 </style>
