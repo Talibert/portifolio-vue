@@ -38,18 +38,18 @@ const alignClass = computed(() => props.align === 'left' ? 'left' : 'right')
 
 .experience-section.right {
   margin-left: auto;
-  background-color: #0a1f40;
+  background-color: #1a1a1a;
   border-left: 6px solid #1e90ff;
 }
 
 .experience-section.left {
   margin-right: auto;
-  background-color: #0a1f40;
+  background-color: #1a1a1a;
   border-right: 6px solid #1e90ff;
 }
 
 .experience-section.current.right {
-  background-color: #400000;
+  background-color: #1a1a1a;
   border-left-color: #ff4d4f;
 }
 
@@ -66,12 +66,14 @@ const alignClass = computed(() => props.align === 'left' ? 'left' : 'right')
 }
 
 .content h3 {
+  font-family: 'Inter', sans-serif;
   margin: 0 0 30px 0;
-  font-size: 3.5rem;
-  color: #fff;
+  font-size: 3rem;
+  color: #1e90ff;
 }
 
 .content p {
+  font-family: 'Lato', sans-serif;
   margin: 0;
   color: #ddd;
   font-size: 1.5rem;
@@ -82,6 +84,6 @@ const alignClass = computed(() => props.align === 'left' ? 'left' : 'right')
 }
 
 .experience-section.current .content p {
-  color: #ffc1c1;
+  color: #ddd;
 }
 </style>
