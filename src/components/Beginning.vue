@@ -18,7 +18,7 @@ import ProfilePhoto from "@/components/ProfilePhoto.vue";
   flex-direction: row;
   align-items: center;
   height: 100vh;
-  background-color: #333333;
+  background-color: #222222;
 }
 
 /* Os filhos do .hero ocuparão 50% cada */

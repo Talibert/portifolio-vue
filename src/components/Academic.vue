@@ -32,7 +32,7 @@ const { displayedText: displayedTitle } = useTypingEffect(title, 1000, 90, 30, f
   position: relative;
   min-height: 100vh;
   padding: 80px 50px;
-  background-color: #888888;
+  background-color: #444444;
   color: #fff;
   display: flex;
   flex-direction: column;
