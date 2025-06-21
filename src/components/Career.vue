@@ -47,7 +47,7 @@ const { displayedText: displayedTitle } = useTypingEffect(title, 1000, 90, 30, f
   position: relative;              /* ✅ Necessário pra posicionar a linha central */
   min-height: 100vh;
   padding: 80px 20px;
-  background-color: #141414;
+  background-color: #222222;
   color: #fff;
   display: flex;
   flex-direction: column;

@@ -1,5 +1,8 @@
 <template>
-  <div :class="['experience-section', alignClass, { current }]">
+  <div
+      ref="sectionRef"
+      :class="['experience-section', alignClass, { current, visible: isVisible }]"
+  >
     <div class="content">
       <h3>{{ title }}</h3>
       <p>{{ description }}</p>
@@ -8,7 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
+import { useIntersectionObserver } from '@vueuse/core'
 
 interface Props {
   title: string
@@ -19,79 +23,23 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const alignClass = computed(() => props.align === 'left' ? 'left' : 'right')
+const alignClass = computed(() => (props.align === 'left' ? 'left' : 'right'))
+
+const sectionRef = ref<HTMLElement | null>(null)
+const isVisible = ref(false)
+
+useIntersectionObserver(
+    sectionRef,
+    ([entry]) => {
+      isVisible.value = entry.isIntersecting
+    },
+    {
+      threshold: 0.1, // dispara quando 10% do card estiver visível
+    }
+)
 </script>
 
 <style scoped>
-.experience-section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 45%;                         /* ✅ Ocupa 45% da largura da section */
-  max-width: none;                    /* ✅ Remove o limite anterior de 800px */
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-  z-index: 1;                          /* ✅ Ficar acima da linha */
-}
-
-.experience-section.right {
-  margin-left: auto;
-  background-color: #1a1a1a;
-  border-left: 6px solid #1e90ff;
-  animation: fadeInRight 0.8s ease forwards;
-}
-
-.experience-section.left {
-  margin-right: auto;
-  text-align: right;
-  background-color: #1a1a1a;
-  border-right: 6px solid #1e90ff;
-  animation: fadeInLeft 0.8s ease forwards;
-}
-
-.experience-section.current.right {
-  background-color: #1a1a1a;
-  border-left-color: #ff4d4f;
-}
-
-.experience-section.current.left {
-  background-color: #400000;
-  border-right-color: #ff4d4f;
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.content h3 {
-  font-family: 'Inter', sans-serif;
-  margin: 0 0 30px 0;
-  font-size: 3rem;
-  color: #1e90ff;
-}
-
-.content p {
-  font-family: 'Lato', sans-serif;
-  margin: 0;
-  color: #ddd;
-  font-size: 1.5rem;
-}
-
-.experience-section.current .content h3 {
-  color: #ff4d4f;
-}
-
-.experience-section.current .content p {
-  color: #ddd;
-}
-
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -112,5 +60,82 @@ const alignClass = computed(() => props.align === 'left' ? 'left' : 'right')
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.experience-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.experience-section.visible.left {
+  animation: fadeInLeft 0.8s ease forwards;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.experience-section.visible.right {
+  animation: fadeInRight 0.8s ease forwards;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.experience-section.current.left {
+  background-color: #1a1a1a;
+  border-right-color: #ff4d4f;
+}
+
+.experience-section.current.right {
+  background-color: #1a1a1a;
+  border-left-color: #ff4d4f;
+}
+
+/* Seu estilo base do card, alinhamento, sombras, etc, continua igual */
+.experience-section {
+  width: 45%;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.experience-section.left {
+  margin-right: auto;
+  text-align: right;
+  border-right: 6px solid #1e90ff;
+  background-color: #1a1a1a;
+}
+
+.experience-section.right {
+  margin-left: auto;
+  border-left: 6px solid #1e90ff;
+  background-color: #1a1a1a;
+}
+
+.content h3 {
+  font-family: 'Inter', sans-serif;
+  margin: 0 0 60px 0;
+  font-size: 3rem;
+  color: #1e90ff;
+}
+
+.content p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  color: #ddd;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+.experience-section.current .content h3 {
+  color: #ff4d4f;
+}
+
+.experience-section.current .content p {
+  color: #ddd;
 }
 </style>
